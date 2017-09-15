@@ -9,19 +9,16 @@ namespace YH.Core.Http
 {
    public class HttpWebRequestUtility
     {
-         static readonly string CONTENT_TYPE_FORM = "application/x-www-form-urlencoded";
-         static readonly string CONTENT_TYPE_JSON = "application/json";
-         static readonly string HTTP_METHOD_GET = "GET";
-         static readonly string HTTP_METHOD_POST = "POST";
-
+        static readonly string CONTENT_TYPE_FORM = "application/x-www-form-urlencoded";
+        static readonly string CONTENT_TYPE_JSON = "application/json";
+        static readonly string HTTP_METHOD_GET = "GET";
+        static readonly string HTTP_METHOD_POST = "POST";
         private StackTrace _stackTrace = null;
         private Tracked _traced = null;
-
         public HttpWebRequestUtility(string uri):this(uri,HttpMethod.GET,HttpContentType.FORM)
         {
 
         }
-
         public HttpWebRequestUtility(string uri,HttpMethod method, HttpContentType contentType) :this(uri,method,contentType,null,null,null)
         {
 
@@ -50,8 +47,6 @@ namespace YH.Core.Http
             _traced = new  Tracked(_stackTrace);
 
             _head = head;
-
-
           
             if (_head == null)
             {
@@ -105,7 +100,7 @@ namespace YH.Core.Http
 
             this._request = request;
 
-            this._serializableService = serializableService;
+            this._serializableService = serializableService==null?new NewtonSerailizable():serializableService;
         }
 
         HttpHead _head = null;
@@ -214,14 +209,7 @@ namespace YH.Core.Http
                 string text = sr.ReadToEnd().Trim();
                 if (!string.IsNullOrEmpty(text))
                 {
-                    if (this._serializableService == null)
-                    {
-                        result = new NewtonSerailizable().JsonDeserializeObject<T>(text);
-                    }
-                    else
-                    {
-                        result = _serializableService.JsonDeserializeObject<T>(text);
-                    }
+                   result = _serializableService.JsonDeserializeObject<T>(text);
                 }
             }
 

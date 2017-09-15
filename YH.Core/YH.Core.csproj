@@ -45,12 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Http\HttpEnums.cs" />
+    <Compile Include="Http\HttpAfterArgs.cs" />
     <Compile Include="Http\HttpHead.cs" />
     <Compile Include="Http\HttpParameter.cs" />
     <Compile Include="Http\HttpWebRequestUtility.cs" />
+    <Compile Include="Logs\ILogParatmer.cs" />
+    <Compile Include="Logs\IYHLog.cs" />
     <Compile Include="Serializable\ISerializableObject.cs" />
     <Compile Include="Serializable\NewtonSerailizable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Track\Tracked.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Comm\" />

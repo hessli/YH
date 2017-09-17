@@ -18,6 +18,8 @@ namespace YH.Core.Http
 
         public event EventHandler AfterRequest;
 
+        DateTime _requestTime = DateTime.Now;
+
         public HttpWebRequestUtility(string uri):this(uri,HttpMethod.GET,HttpContentType.FORM)
         {
 
@@ -163,7 +165,7 @@ namespace YH.Core.Http
         public string Request()
         {
             short isSuccess = 1;
-            var requestTime = DateTime.Now;
+            
             var reponse = default(string);
             if (this._method == HttpMethod.POST)
             {
@@ -196,7 +198,7 @@ namespace YH.Core.Http
             }
             finally {
 
-                this.OnAfterRequest(requestTime,isSuccess, reponse);
+                this.OnAfterRequest(_requestTime, isSuccess, reponse);
             }
         }
 
@@ -245,6 +247,7 @@ namespace YH.Core.Http
         /// </summary>
         public void ReuestAsynch()
         {
+             
             if (this._method == HttpMethod.POST)
             {
                 byte[] bytes = this.GetRequestStream();
@@ -258,6 +261,7 @@ namespace YH.Core.Http
             }
             this._request.GetResponseAsync();
 
+            this.OnAfterRequest(_requestTime, -1, "异步请求暂未获得响应数据");
         } 
     }
 }

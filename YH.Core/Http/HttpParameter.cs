@@ -13,11 +13,14 @@ namespace YH.Core.Http
 
         private object _parameter;
 
+
         public HttpParameter()
         {
             _dict = new Dictionary<string, object>();
         }
 
+
+      
         internal string GetRequestParameter(HttpMethod method, ISerializableObject serializable = null)
         {
             string requestParaStr = string.Empty;
@@ -33,6 +36,7 @@ namespace YH.Core.Http
                     throw new ArgumentException("不支持的请求方式");
             }
 
+            _serializeParameters = requestParaStr;
             return requestParaStr;
         }
 
@@ -83,7 +87,6 @@ namespace YH.Core.Http
                 }
             }
             _serializeParameters=sb.ToString();
-
             return _serializeParameters;
         }
 
@@ -107,13 +110,7 @@ namespace YH.Core.Http
             _dict.Add(name, value);
         }
 
-        internal HttpAfterArgs ToAfterArgs()
-        {
-            var args = new HttpAfterArgs {
-
-
-            };
-
-        }
+         
+      
     }
 }

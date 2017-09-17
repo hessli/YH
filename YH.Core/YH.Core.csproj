@@ -30,25 +30,44 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Lib\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comm\YHBaseEnums.cs" />
+    <Compile Include="DataProvider\CommandInfo.cs" />
+    <Compile Include="DataProvider\DataAccessFieldHelper.cs" />
+    <Compile Include="DataProvider\IBaseBusiness.cs" />
+    <Compile Include="DataProvider\IDBDataProvider.cs" />
+    <Compile Include="DataProvider\IRepository.cs" />
+    <Compile Include="DataProvider\IUnitOfWork.cs" />
+    <Compile Include="DataProvider\Repository.cs" />
+    <Compile Include="File\FileUtility.cs" />
     <Compile Include="Http\HttpEnums.cs" />
     <Compile Include="Http\HttpAfterArgs.cs" />
     <Compile Include="Http\HttpHead.cs" />
     <Compile Include="Http\HttpParameter.cs" />
     <Compile Include="Http\HttpWebRequestUtility.cs" />
+    <Compile Include="Linq\AndSpecification.cs" />
+    <Compile Include="Linq\CommonEqualityComparer.cs" />
+    <Compile Include="Linq\CompositeSpecification.cs" />
+    <Compile Include="Linq\DirectSpecification.cs" />
+    <Compile Include="Linq\DistinctExtensions.cs" />
+    <Compile Include="Linq\DynamicSortQueryable.cs" />
+    <Compile Include="Linq\ExpressionBuilder.cs" />
+    <Compile Include="Linq\ISpecification.cs" />
+    <Compile Include="Linq\NotSpecification.cs" />
+    <Compile Include="Linq\OrSpecification.cs" />
+    <Compile Include="Linq\ParameterRebinder.cs" />
+    <Compile Include="Linq\Specification.cs" />
+    <Compile Include="Linq\TrueSpecification.cs" />
     <Compile Include="Logs\ILogParatmer.cs" />
     <Compile Include="Logs\IYHLog.cs" />
     <Compile Include="Serializable\ISerializableObject.cs" />
@@ -56,9 +75,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Track\Tracked.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Comm\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

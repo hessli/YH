@@ -15,6 +15,9 @@ namespace YH.Core.Http
         static readonly string HTTP_METHOD_POST = "POST";
         private StackTrace _stackTrace = null;
         private Tracked _traced = null;
+
+        public event EventHandler AfterRequest;
+
         public HttpWebRequestUtility(string uri):this(uri,HttpMethod.GET,HttpContentType.FORM)
         {
 
@@ -159,6 +162,9 @@ namespace YH.Core.Http
         /// <returns></returns>
         public string Request()
         {
+            short isSuccess = 1;
+            var requestTime = DateTime.Now;
+            var reponse = default(string);
             if (this._method == HttpMethod.POST)
             {
                 byte[] bytes = this.GetRequestStream();
@@ -170,15 +176,48 @@ namespace YH.Core.Http
                     stream.Close();
                 }
             }
-            WebResponse response = this._request.GetResponse();
-            if (response != null)
+            try
             {
-                StreamReader sr = new StreamReader(response.GetResponseStream(), this._head.Encoding);
+                WebResponse response = this._request.GetResponse();
+                if (response != null)
+                {
+                    StreamReader sr = new StreamReader(response.GetResponseStream(), this._head.Encoding);
 
+                    reponse = sr.ReadToEnd().Trim();
+                }
 
-                return sr.ReadToEnd().Trim();
+                return reponse;
             }
-            return null;
+            catch (Exception ex)
+            {
+                isSuccess = 0;
+                reponse = ex.Message;
+                throw ex;
+            }
+            finally {
+
+                this.OnAfterRequest(requestTime,isSuccess, reponse);
+            }
+        }
+
+
+        private void OnAfterRequest(DateTime requestTime, short issuccess, string responseText)
+        {
+
+            if (this.AfterRequest != null)
+            {
+                var requestText = string.Empty;
+                
+                if (this._parameter != null)
+                {
+                    requestText = this._parameter.SerializeParameters;
+                }
+
+               var head= _serializableService.JsonSerializableObject(this._head);
+
+                this.AfterRequest(this,new HttpAfterArgs(this._request.RequestUri.AbsolutePath,
+                    requestText, responseText,head,issuccess, requestTime,DateTime.Now));
+            }
         }
 
         /// <summary>
@@ -191,26 +230,12 @@ namespace YH.Core.Http
         {
 
             var result = default(T);
-            if (this._method == HttpMethod.POST)
+
+            var  rsponseText= this.Request();
+           
+            if (!string.IsNullOrWhiteSpace(rsponseText))
             {
-                byte[] bytes = this.GetRequestStream();
-                if (bytes != null)
-                {
-                    this._request.ContentLength = bytes.Length;
-                    Stream stream = this._request.GetRequestStream();
-                    stream.Write(bytes, 0, bytes.Length);
-                    stream.Close();
-                }
-            }
-            WebResponse response = this._request.GetResponse();
-            if (response != null)
-            {
-                StreamReader sr = new StreamReader(response.GetResponseStream(), this._head.Encoding);
-                string text = sr.ReadToEnd().Trim();
-                if (!string.IsNullOrEmpty(text))
-                {
-                   result = _serializableService.JsonDeserializeObject<T>(text);
-                }
+                result= _serializableService.JsonDeserializeObject<T>(rsponseText);
             }
 
             return result;

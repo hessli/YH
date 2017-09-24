@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comm\YHBaseEnums.cs" />
+    <Compile Include="ConvertExtend.cs" />
     <Compile Include="DataProvider\CommandInfo.cs" />
     <Compile Include="DataProvider\DataAccessFieldHelper.cs" />
     <Compile Include="DataProvider\IBaseBusiness.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Http\HttpAfterArgs.cs" />
     <Compile Include="Http\HttpHead.cs" />
     <Compile Include="Http\HttpParameter.cs" />
+    <Compile Include="Http\HttpRequestLog.cs" />
     <Compile Include="Http\HttpWebRequestUtility.cs" />
     <Compile Include="Linq\AndSpecification.cs" />
     <Compile Include="Linq\CommonEqualityComparer.cs" />
@@ -70,6 +72,21 @@
     <Compile Include="Linq\TrueSpecification.cs" />
     <Compile Include="Logs\ILogParatmer.cs" />
     <Compile Include="Logs\IYHLog.cs" />
+    <Compile Include="Notification\AbNotification.cs" />
+    <Compile Include="Notification\Filter\IGetSendRecord.cs" />
+    <Compile Include="Notification\Filter\INotificationFilter.cs" />
+    <Compile Include="Notification\Filter\SendRecord.cs" />
+    <Compile Include="Notification\Filter\SendRecordList.cs" />
+    <Compile Include="Notification\INotificationAddressRule.cs" />
+    <Compile Include="Notification\INotificationBody.cs" />
+    <Compile Include="Notification\INotificationContent.cs" />
+    <Compile Include="Notification\Filter\BaseNotificationFilter.cs" />
+    <Compile Include="Notification\NotificationAddressInvalidException.cs" />
+    <Compile Include="Notification\INotification.cs" />
+    <Compile Include="Notification\INotificationTarget.cs" />
+    <Compile Include="Notification\NotificationContentList.cs" />
+    <Compile Include="Notification\NotificationTargetList.cs" />
+    <Compile Include="Notification\Rules\ChinaMobileRule.cs" />
     <Compile Include="Serializable\ISerializableObject.cs" />
     <Compile Include="Serializable\NewtonSerailizable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

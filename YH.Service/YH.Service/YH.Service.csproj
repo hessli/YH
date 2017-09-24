@@ -47,13 +47,28 @@
     <Compile Include="Logs\Log4netService.cs" />
     <Compile Include="Logs\LogDatabaseService.cs" />
     <Compile Include="Logs\LogFileTextService.cs" />
+    <Compile Include="Notification\Sms\ISendHttpRequest.cs" />
+    <Compile Include="Notification\Sms\ISendHttpRequestProcessor.cs" />
+    <Compile Include="Notification\Sms\SmsBaseNotificationBody.cs" />
+    <Compile Include="Notification\Sms\SmsBaseNotificationTarget.cs" />
+    <Compile Include="Notification\Sms\SmsNotificationContentList.cs" />
+    <Compile Include="Notification\Sms\YunPian\YPChianHttpRequestProvider.cs" />
+    <Compile Include="Notification\Sms\YunPian\YPForeignHttpReqeustProvider.cs" />
+    <Compile Include="Notification\Sms\YunPian\YPNotificationBody.cs" />
+    <Compile Include="Notification\Sms\YunPian\YPNotificationTarget.cs" />
+    <Compile Include="Notification\Sms\YunPian\YPSerailizable.cs" />
+    <Compile Include="Notification\Sms\YunPian\YunPianNotification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceEum.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\YH.Core\YH.Core.csproj">
       <Project>{d97482bf-2a63-4c77-8b9c-ae5072b5cdc2}</Project>
       <Name>YH.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Notification\Email\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YH.Core.Comm;
+using YH.Core.Logs;
 
 namespace YH.Core.Http
 {
    public class HttpAfterArgs:EventArgs
     {
-
         public HttpAfterArgs(string uri,string requestText,string responseText,
             string requestHeadText,
             short isSucess,
@@ -36,7 +37,7 @@ namespace YH.Core.Http
 
         public string ResponseText { get; private set; }
 
-        public short IsSuccess { get; set; }
+        public short IsSuccess { get; private set; }
 
         public DateTime RequestTime { get; private set; }
 
@@ -48,5 +49,13 @@ namespace YH.Core.Http
         /// 执行对象
         /// </summary>
         public string ExcuteObject { get; private  set; }
+
+        public ILogParatmer ToRequestLog(LogLevel level= LogLevel.默认)
+        {
+            HttpRequestLog log = new Http.HttpRequestLog(this.ExcuteObject, this.ResponseText, level.ToShort(),
+                1, IsSuccess, this.RequestText,this.RequestText, this.RequestTime, this.ResponseTime, LogType.调用第三方接口日志);
+
+            return log;
+        }
     }
 }

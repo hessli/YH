@@ -30,6 +30,9 @@ namespace YH.Core.Logs
          /// 执行对象
          /// </summary>
          string ExcuteObject { get;  }
+         
+         string Path { get; }
+         
          short Level { get;  }
         string Formart();
     }

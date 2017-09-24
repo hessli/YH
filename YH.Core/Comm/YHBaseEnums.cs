@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace YH.Core.Comm
 {
@@ -16,5 +12,22 @@ namespace YH.Core.Comm
     {
          SQLServer=1,
          Mysql=2
+    }
+
+
+    public enum LogLevel
+    {
+         严重=1,
+         普通=2,
+         默认=3
+
+    }
+
+    [Flags]
+    public enum NotificationType
+    {
+         短信=1,
+         邮件=2,
+         全部= 短信 & 邮件
     }
 }

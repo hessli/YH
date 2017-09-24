@@ -28,7 +28,12 @@ namespace YH.Core.Http
         {
 
         }
-        
+
+        public HttpWebRequestUtility(string uri, HttpMethod mehtod, HttpContentType contentType, HttpParameter paramter) : this(uri,mehtod,contentType,paramter,null,null)
+        {
+
+        }
+
         public HttpWebRequestUtility(string uri, HttpParameter parameter,HttpMethod method, HttpContentType contentType,
             HttpHead head) :this(uri,method,contentType,parameter,head,null)
         {
@@ -39,12 +44,18 @@ namespace YH.Core.Http
                 
         }
 
+        public HttpWebRequestUtility(string uri, HttpParameter parameter, HttpMethod method, HttpContentType contentType, ISerializableObject serializable) 
+            : this(uri, HttpMethod.POST, HttpContentType.JSON, parameter, null, serializable)
+        {
+
+        }
+
         public HttpWebRequestUtility(string uri,
             HttpMethod method, 
             HttpContentType contentType,
            HttpParameter param,
             HttpHead head,
-            ISerializableObject serializableService)
+            ISerializableObject serializable)
         {
 
             _stackTrace = new StackTrace();
@@ -105,7 +116,7 @@ namespace YH.Core.Http
 
             this._request = request;
 
-            this._serializableService = serializableService==null?new NewtonSerailizable():serializableService;
+            this._serializableService = serializable==null?new NewtonSerailizable():serializable;
         }
 
         HttpHead _head = null;

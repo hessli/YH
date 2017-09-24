@@ -101,10 +101,19 @@ namespace YH.Core.Http
             }
         }
 
+        /// <summary>
+        /// 设置post请求参数
+        /// </summary>
+        /// <param name="value"></param>
         public void SetPostParameter(object value)
         {
             _parameter = value;
         }
+        /// <summary>
+        /// 添加get请求参数
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
         public void AddGetParameter(string name, object value)
         {
             _dict.Add(name, value);

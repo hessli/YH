@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{51707D30-DE44-41F5-AEE1-F23EFB48622E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YH.MVC</RootNamespace>
+    <AssemblyName>YH.MVC</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\publicdell\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\publicdell\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Binder\JsonModelBinder.cs" />
+    <Compile Include="Binder\JsonProviderFactory.cs" />
+    <Compile Include="Controller\ActionResult\JSonpResult.cs" />
+    <Compile Include="Controller\ActionResult\NetJsonResult.cs" />
+    <Compile Include="Controller\BaseController.cs" />
+    <Compile Include="ErrorModel.cs" />
+    <Compile Include="Exception\BaseException.cs" />
+    <Compile Include="Exception\ExceptionType.cs" />
+    <Compile Include="Filter\ActionFilter.cs" />
+    <Compile Include="Filter\ExceptionFilter.cs" />
+    <Compile Include="Filter\WxExceptionFilter.cs" />
+    <Compile Include="IBaseForm.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultModel.cs" />
+    <Compile Include="TokenModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\YH.Core\YH.Core.csproj">
+      <Project>{d97482bf-2a63-4c77-8b9c-ae5072b5cdc2}</Project>
+      <Name>YH.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YH.Service\YH.Service\YH.Service.csproj">
+      <Project>{c59cbdef-5724-49d2-917c-e6d1942add24}</Project>
+      <Name>YH.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YH.Utils\YH.Utils\YH.Utils.csproj">
+      <Project>{5e6f2129-78b4-42ec-85d2-f20e84d7632d}</Project>
+      <Name>YH.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

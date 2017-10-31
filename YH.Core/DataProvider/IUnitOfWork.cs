@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace YH.Core.DataProvider
 {
-	public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork : IDisposable
 	{
 		/// <summary>
 		/// 不会立即提交,只会保存到当前上下文Context对象中
@@ -37,7 +36,7 @@ namespace YH.Core.DataProvider
         /// <typeparam name="TElement"></typeparam>
         /// <param name="sql"></param>
         /// <returns></returns>
-        DbRawSqlQuery<TElement> ExcuteSqlQuery<TElement>(string sql,params object[] paramters);
+        //DbRawSqlQuery<TElement> ExcuteSqlQuery<TElement>(string sql,params object[] paramters);
         /// <summary>
         /// 立即提交当前上下文Context,抛异常会自动回滚(事务式提交)
         /// </summary>

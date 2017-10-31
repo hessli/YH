@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -65,10 +64,10 @@ namespace YH.Core.DataProvider
 			return this.Entities.Where<T> (expression).FirstOrDefault<T> ();
 		}
 
-        public DbRawSqlQuery<TElement> ExcuteSqlQuery<TElement>(string sql, params object[] paramters)
-        {
-            return this.UnitOfWork.ExcuteSqlQuery<TElement>(sql,paramters);
-        }
+        //public DbRawSqlQuery<TElement> ExcuteSqlQuery<TElement>(string sql, params object[] paramters)
+        //{
+        //    return this.UnitOfWork.ExcuteSqlQuery<TElement>(sql,paramters);
+        //}
 
         public IQueryable<T> Entities {
 			get {

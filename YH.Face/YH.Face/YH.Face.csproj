@@ -34,10 +34,29 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Notification\Sms\FilterCondition\ISmsCondition.cs" />
+    <Compile Include="Notification\Sms\FilterCondition\IsOverMaxRecordCondition.cs" />
+    <Compile Include="Notification\Sms\FilterCondition\IsOverTimeConditon.cs" />
+    <Compile Include="Notification\Sms\FilterCondition\IsRepeartContentCondition.cs" />
+    <Compile Include="Notification\Sms\FilterCondition\RequestFrequentlyException.cs" />
+    <Compile Include="Notification\Sms\SendRecord.cs" />
+    <Compile Include="Notification\Sms\SendRecordList.cs" />
+    <Compile Include="Notification\Sms\SendSmsFilter.cs" />
+    <Compile Include="Notification\Sms\SmsFace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Notification\" />
+    <Folder Include="Notification\Email\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\YH.Core\YH.Core.csproj">
+      <Project>{d97482bf-2a63-4c77-8b9c-ae5072b5cdc2}</Project>
+      <Name>YH.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YH.Service\YH.Service\YH.Service.csproj">
+      <Project>{c59cbdef-5724-49d2-917c-e6d1942add24}</Project>
+      <Name>YH.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

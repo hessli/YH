@@ -25,22 +25,22 @@ namespace YH.Core.Notification
         /// </summary>
         /// <param name="targets"></param>
         /// <param name="body"></param>
-        void BatchSend(NotificationTargetList targets, INotificationBody body);
+        void BatchSend(IList<INotificationTarget> targets, INotificationBody body);
         /// <summary>
         /// 批量异步发送相同内容
         /// </summary>
         /// <param name="targets"></param>
         /// <param name="body"></param>
-        void BatchSendAsych(NotificationTargetList targets, INotificationBody body);
+        void BatchSendAsych(IList<INotificationTarget> targets, INotificationBody body);
         /// <summary>
         /// 批量发送不同内容
         /// </summary>
         /// <param name="contents"></param>
-        void MultiSend(NotificationContentList contents);
+        void MultiSend(IList<INotificationContent> contents);
         /// <summary>
         /// 批量异步发送不同内容
         /// </summary>
         /// <param name="contents"></param>
-        void MultiSendAsych(NotificationContentList contents);
+        void MultiSendAsych(IList<INotificationContent> contents);
     }
 }

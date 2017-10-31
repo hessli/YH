@@ -20,6 +20,12 @@ namespace YH.Service.Logs
 
             this.OnNotifaction(paramter);
         }
+
+        public void Error(string text,Exception ex )
+        {
+
+            _log.Error(text, ex);
+        }
         public void ErrorAsych(ILogParatmer paramter)
         {
         

@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\Lib\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -50,6 +47,8 @@
     <Compile Include="DataProvider\IRepository.cs" />
     <Compile Include="DataProvider\IUnitOfWork.cs" />
     <Compile Include="DataProvider\Repository.cs" />
+    <Compile Include="Enums\EnumManage.cs" />
+    <Compile Include="Enums\EnumProperty.cs" />
     <Compile Include="File\FileUtility.cs" />
     <Compile Include="Http\HttpEnums.cs" />
     <Compile Include="Http\HttpAfterArgs.cs" />
@@ -72,11 +71,12 @@
     <Compile Include="Linq\TrueSpecification.cs" />
     <Compile Include="Logs\ILogParatmer.cs" />
     <Compile Include="Logs\IYHLog.cs" />
-    <Compile Include="Notification\AbNotification.cs" />
-    <Compile Include="Notification\Filter\IGetSendRecord.cs" />
+    <Compile Include="Math\RandHelper.cs" />
     <Compile Include="Notification\Filter\INotificationFilter.cs" />
-    <Compile Include="Notification\Filter\SendRecord.cs" />
-    <Compile Include="Notification\Filter\SendRecordList.cs" />
+    <Compile Include="Notification\Filter\ISpecificationTest.cs" />
+    <Compile Include="Notification\NotificationSuccessArgs.cs" />
+    <Compile Include="Notification\Sms\IChinaSmsNotification.cs" />
+    <Compile Include="Notification\Sms\IForeignSmsNotification.cs" />
     <Compile Include="Notification\INotificationAddressRule.cs" />
     <Compile Include="Notification\INotificationBody.cs" />
     <Compile Include="Notification\INotificationContent.cs" />
@@ -84,12 +84,20 @@
     <Compile Include="Notification\NotificationAddressInvalidException.cs" />
     <Compile Include="Notification\INotification.cs" />
     <Compile Include="Notification\INotificationTarget.cs" />
-    <Compile Include="Notification\NotificationContentList.cs" />
-    <Compile Include="Notification\NotificationTargetList.cs" />
     <Compile Include="Notification\Rules\ChinaMobileRule.cs" />
+    <Compile Include="Notification\Sms\SmsNotificationBody.cs" />
+    <Compile Include="Notification\Sms\SmsNotificationContent.cs" />
+    <Compile Include="Notification\Sms\SmsNotificationContentList.cs" />
+    <Compile Include="Notification\Sms\SmsNotificationTarget.cs" />
+    <Compile Include="Notification\Sms\SmsNotificationTargetList.cs" />
+    <Compile Include="Pagination\LinqExtensions.cs" />
+    <Compile Include="Pagination\PagingResult.cs" />
     <Compile Include="Serializable\ISerializableObject.cs" />
     <Compile Include="Serializable\NewtonSerailizable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Table\ConvertToDataTable.cs" />
+    <Compile Include="Time\TimeHelper.cs" />
+    <Compile Include="Time\TimeInMonthWeek.cs" />
     <Compile Include="Track\Tracked.cs" />
   </ItemGroup>
   <ItemGroup />

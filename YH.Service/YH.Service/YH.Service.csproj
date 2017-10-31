@@ -47,17 +47,10 @@
     <Compile Include="Logs\Log4netService.cs" />
     <Compile Include="Logs\LogDatabaseService.cs" />
     <Compile Include="Logs\LogFileTextService.cs" />
-    <Compile Include="Notification\Sms\ISendHttpRequest.cs" />
-    <Compile Include="Notification\Sms\ISendHttpRequestProcessor.cs" />
-    <Compile Include="Notification\Sms\SmsBaseNotificationBody.cs" />
-    <Compile Include="Notification\Sms\SmsBaseNotificationTarget.cs" />
-    <Compile Include="Notification\Sms\SmsNotificationContentList.cs" />
-    <Compile Include="Notification\Sms\YunPian\YPChianHttpRequestProvider.cs" />
-    <Compile Include="Notification\Sms\YunPian\YPForeignHttpReqeustProvider.cs" />
-    <Compile Include="Notification\Sms\YunPian\YPNotificationBody.cs" />
-    <Compile Include="Notification\Sms\YunPian\YPNotificationTarget.cs" />
+    <Compile Include="Notification\Sms\YunPian\YPBaseSmsNotification.cs" />
+    <Compile Include="Notification\Sms\YunPian\YPForeignNotification.cs" />
     <Compile Include="Notification\Sms\YunPian\YPSerailizable.cs" />
-    <Compile Include="Notification\Sms\YunPian\YunPianNotification.cs" />
+    <Compile Include="Notification\Sms\YunPian\YPChinaNotification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceEum.cs" />
   </ItemGroup>

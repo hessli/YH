@@ -35,6 +35,8 @@ namespace YH.Core.Http
 
             _responseTime = responseTime;
 
+            _module = module;
+
             _uri = uri;
 
             _excuteResult = excuteObject;

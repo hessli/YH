@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 
 namespace YH.Core.DataProvider
 {
-	/// <summary>
-	/// 数据持久层
-	/// </summary>
-	public interface IRepository<T>  where T :class
+    /// <summary>
+    /// 数据持久层
+    /// </summary>
+    public interface IRepository<T>  where T :class
 	{
-        DbRawSqlQuery<TElement> ExcuteSqlQuery<TElement>(string sql, params object[] paramters);
+        //DbRawSqlQuery<TElement> ExcuteSqlQuery<TElement>(string sql, params object[] paramters);
 
         IQueryable<T> GetList (ISpecification<T> spec);
 
